@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { InsertResult, Repository, UpdateResult } from 'typeorm'
+import { InsertResult, Repository, UpdateResult, DeleteResult } from 'typeorm'
 
 import { TodosModel } from '@/models/todos.model'
 import { CreateTodoInput } from '@/dto/create-todo.input'
@@ -8,6 +8,7 @@ import { UpdateTodoInput } from '@/dto/update-todo.input'
 
 @Injectable()
 export class TodosService {
+  //Repositoryを注入するために行っている
   constructor(
     @InjectRepository(TodosModel)
     private readonly todosRepository: Repository<TodosModel>,
